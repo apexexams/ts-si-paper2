@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TS SI Mains 2023 Paper-2 (General Studies) | Cloud-Synced B2B Portal</title>
+  <title>TS SI Mains 2023 Paper-2 (General Studies) | Institute & Direct Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Telugu:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +24,9 @@
     .role-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: #e2e8f0; padding: 6px; border-radius: 12px; margin-bottom: 18px; }
     .role-btn { padding: 10px 6px; border: none; border-radius: 9px; font-weight: 800; font-size: 0.86rem; cursor: pointer; background: transparent; color: #475569; }
     .role-btn.active { background: white; color: var(--primary-dark); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .sub-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .sub-btn { padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 9px; font-weight: 800; font-size: 0.85rem; cursor: pointer; background: #f8fafc; color: #334155; }
+    .sub-btn.active { background: #e0f2fe; border-color: #0284c7; color: #0369a1; }
     .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 14px; }
     .form-group label { display: block; font-size: 0.84rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
     .form-group input { width: 100%; padding: 10px 12px; border: 1.5px solid #cbd5e1; border-radius: 9px; font-size: 0.94rem; outline: none; }
@@ -73,7 +76,7 @@
 
 <header>
   <h1>🎯 TS SI Mains 2023 — Paper-2 (General Studies)</h1>
-  <p>TSLPRB Official Exam Portal (09-04-2023) • Cloud-Synced Secure Portal</p>
+  <p>TSLPRB Official Exam Portal (09-04-2023) • Institute & Direct Student Portal</p>
 </header>
 
 <div class="container">
@@ -86,20 +89,43 @@
   <!-- 1. STUDENT VIEW -->
   <div id="view-student">
     <div id="studentLoginCard" class="card">
-      <h2 style="font-size: 1.2rem; margin-bottom: 6px;">🎓 విద్యార్థి పరీక్ష లాగిన్ — Paper-2 (General Studies)</h2>
-      <p style="font-size: 0.84rem; color: var(--muted); margin-bottom: 14px;">
-        <strong>మొదటిసారి లాగిన్:</strong> PIN ఖాళీగా వదిలేస్తే మీకు ప్రత్యేక <strong>Personal PIN</strong> వస్తుంది. రీఫ్రెష్ చేసినా లేదా మళ్ళీ లాగిన్ అయినా మీ పాత సమాధానాలు & మిగిలిన సమయం అక్కడి నుండే కొనసాగుతాయి.
-      </p>
-      <div class="form-grid">
-        <div class="form-group"><label>ఇన్‌స్టిట్యూట్ కోడ్ *</label><input type="text" id="stuInstCode" placeholder="ఉదా: TPA100"></div>
-        <div class="form-group"><label>రోల్ నంబర్ *</label><input type="text" id="stuRoll" placeholder="ఉదా: 101"></div>
-        <div class="form-group"><label>విద్యార్థి పూర్తి పేరు *</label><input type="text" id="stuName" placeholder="ఉదా: K. Rajesh"></div>
-        <div class="form-group"><label>మొబైల్ నంబర్ *</label><input type="tel" id="stuPhone" maxlength="10" placeholder="10 అంకెల నంబర్"></div>
-        <div class="form-group"><label>మీ వ్యక్తిగత PIN (2nd Time onwards)</label><input type="password" id="stuPersonalPin" maxlength="4" placeholder="1st time అయితే ఖాళీగా వదిలేయండి"></div>
+      <div class="sub-tabs">
+        <button class="sub-btn active" id="modeInstBtn" onclick="switchStuMode('inst')">🏛️ Institute Student</button>
+        <button class="sub-btn" id="modeDirectBtn" onclick="switchStuMode('direct')">⚡ Direct Student (₹5 Only)</button>
       </div>
-      <button class="btn btn-primary btn-full" id="stuLoginBtn" onclick="studentLogin()">🚀 Paper-2 పరీక్ష ప్రారంభించండి / కొనసాగించండి</button>
+
+      <!-- MODE A: INSTITUTE STUDENT -->
+      <div id="instStudentBox">
+        <h2 style="font-size: 1.15rem; margin-bottom: 6px;">🏛️ ఇన్‌స్టిట్యూట్ విద్యార్థి లాగిన్ — Paper-2 (GS)</h2>
+        <p style="font-size: 0.84rem; color: var(--muted); margin-bottom: 14px;">
+          మీ కోచింగ్ సెంటర్ ఇచ్చిన <strong>Institute Code & Roll Number</strong> తో లాగిన్ అవ్వండి.
+        </p>
+        <div class="form-grid">
+          <div class="form-group"><label>ఇన్‌స్టిట్యూట్ కోడ్ *</label><input type="text" id="stuInstCode" placeholder="ఉదా: TPA100"></div>
+          <div class="form-group"><label>రోల్ నంబర్ *</label><input type="text" id="stuRoll" placeholder="ఉదా: 101"></div>
+          <div class="form-group"><label>విద్యార్థి పూర్తి పేరు *</label><input type="text" id="stuName" placeholder="ఉదా: K. Rajesh"></div>
+          <div class="form-group"><label>మొబైల్ నంబర్ *</label><input type="tel" id="stuPhone" maxlength="10" placeholder="10 అంకెల నంబర్"></div>
+          <div class="form-group"><label>మీ వ్యక్తిగత PIN (2nd Time onwards)</label><input type="password" id="stuPersonalPin" maxlength="4" placeholder="1st time అయితే ఖాళీగా వదిలేయండి"></div>
+        </div>
+        <button class="btn btn-primary btn-full" id="stuLoginBtn" onclick="studentLogin()">🚀 Paper-2 పరీక్ష ప్రారంభించండి / కొనసాగించండి</button>
+      </div>
+
+      <!-- MODE B: DIRECT STUDENT (₹5) -->
+      <div id="directStudentBox" style="display: none;">
+        <h2 style="font-size: 1.15rem; margin-bottom: 6px; color:#15803d;">⚡ డైరెక్ట్ స్టూడెంట్ ఎగ్జామ్ — Paper-2 (కేవలం ₹5)</h2>
+        <p style="font-size: 0.84rem; color: var(--muted); margin-bottom: 14px;">
+          ఏ ఇన్‌స్టిట్యూట్ కోడ్ అవసరం లేకుండానే <strong>₹5 చెల్లించి</strong> పూర్తి 200 ప్రశ్నల General Studies గ్రాండ్ టెస్ట్ రాయవచ్చు & PDF కీ పొందవచ్చు. ఇప్పటికే ₹5 చెల్లించినవారు మీ మొబైల్ నంబర్ & PIN తో తిరిగి లాగిన్ అవ్వవచ్చు.
+        </p>
+        <div class="form-grid">
+          <div class="form-group"><label>విద్యార్థి పూర్తి పేరు *</label><input type="text" id="dirStuName" placeholder="మీ పూర్తి పేరు"></div>
+          <div class="form-group"><label>మొబైల్ నంబర్ *</label><input type="tel" id="dirStuPhone" maxlength="10" placeholder="10 అంకెల నంబర్"></div>
+          <div class="form-group"><label>Personal PIN (ఇప్పటికే ₹5 కట్టినవారు మాత్రమే)</label><input type="password" id="dirStuPin" maxlength="4" placeholder="కొత్తవారు ఖాళీగా వదిలేయండి"></div>
+        </div>
+        <button class="btn btn-success btn-full" id="directPayBtn" onclick="startDirectStudentFlow()">💳 Pay ₹5 & Start Paper-2 (లేదా Continue)</button>
+      </div>
     </div>
 
+    <!-- EXAM SCREEN -->
     <div id="examScreen" style="display: none;">
       <div class="exam-bar">
         <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -141,9 +167,10 @@
       </div>
     </div>
 
+    <!-- RESULT SCREEN -->
     <div id="resultScreen" style="display: none;">
       <div class="print-header">
-        <h2 id="printInstName">Coaching Institute</h2>
+        <h2 id="printInstName">Apex Exams Portal</h2>
         <p>TS SI Mains 2023 — Paper-2 (General Studies) Scorecard & Response Sheet</p>
       </div>
       <div class="score-banner">
@@ -167,7 +194,7 @@
     </div>
   </div>
 
-  <!-- 2. DIRECTOR VIEW -->
+  <!-- 2. DIRECTOR VIEW (UNCHANGED) -->
   <div id="view-director" style="display: none;">
     <div id="directorLoginCard" class="card">
       <h2 style="font-size:1.2rem; margin-bottom:8px;">🏛️ కోచింగ్ సెంటర్ డైరెక్టర్ లాగిన్</h2>
@@ -223,7 +250,7 @@
     </div>
   </div>
 
-  <!-- 3. SUPER ADMIN VIEW -->
+  <!-- 3. SUPER ADMIN VIEW (UNCHANGED) -->
   <div id="view-admin" style="display: none;">
     <div id="adminLoginCard" class="card">
       <h2 style="font-size:1.2rem; margin-bottom:8px;">🛡️ సూపర్ అడ్మిన్ లాగిన్</h2>
@@ -271,19 +298,13 @@
   </div>
 </div>
 
-<!-- Load Paper-2 Question Parts -->
 <script src="part1.js"></script>
 <script src="part2.js"></script>
 <script>
   const QUESTIONS = [...(window.questionsPart1 || []), ...(window.questionsPart2 || [])];
 
-  // =========================================================
-  // 🔑 1. మీ CLOUDFLARE WORKER URL మరియు RAZORPAY KEY:
-  // =========================================================
   const API_URL = "https://apex.smartstudyhub.workers.dev";
   const RAZORPAY_KEY_ID = "rzp_live_YOUR_KEY_HERE";
-
-  // Paper-2 ప్రత్యేక సెషన్ కీ & రోల్ సఫిక్స్ (Paper-1 డేటాతో కలవకుండా ఉండటానికి)
   const SESSION_COOKIE_KEY = "TSSI_P2_GS_CLOUD_SESSION";
   const PAPER_TAG = "_P2";
 
@@ -302,6 +323,53 @@
       document.getElementById(`view-${r}`).style.display = (r === role) ? 'block' : 'none';
       document.getElementById(`tab-${r}`).classList.toggle('active', r === role);
     });
+  }
+
+  function switchStuMode(mode) {
+    document.getElementById('modeInstBtn').classList.toggle('active', mode === 'inst');
+    document.getElementById('modeDirectBtn').classList.toggle('active', mode === 'direct');
+    document.getElementById('instStudentBox').style.display = (mode === 'inst') ? 'block' : 'none';
+    document.getElementById('directStudentBox').style.display = (mode === 'direct') ? 'block' : 'none';
+  }
+
+  // ================= DIRECT ₹5 STUDENT FLOW =================
+  async function startDirectStudentFlow() {
+    if (QUESTIONS.length === 0) return alert("⚠️ part1.js మరియు part2.js ఫైల్స్ లోడ్ కాలేదు.");
+    const name = document.getElementById('dirStuName').value.trim();
+    const phone = document.getElementById('dirStuPhone').value.trim();
+    const pin = document.getElementById('dirStuPin').value.trim();
+
+    if (!name || phone.length < 10) return alert("దయచేసి పేరు మరియు 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.");
+
+    if (pin) {
+      const res = await apiCall({ action: "direct_student_login", name, phone, pin, paperTag: PAPER_TAG });
+      if (!res.ok) return alert("❌ " + res.error);
+      localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ isDirect: true, name, phone, pin, paperTag: PAPER_TAG }));
+      bootStudentFromCloud(res);
+      return;
+    }
+
+    const rzp = new Razorpay({
+      key: RAZORPAY_KEY_ID,
+      amount: 500, // ₹5 = 500 paise
+      currency: "INR",
+      name: "Apex Exams Self-Study",
+      description: "TS SI Mains Paper-2 GS Grand Test (₹5)",
+      prefill: { name, contact: phone },
+      handler: async function (resp) {
+        const res = await apiCall({
+          action: "direct_student_login",
+          name, phone,
+          paymentId: resp.razorpay_payment_id,
+          paperTag: PAPER_TAG
+        });
+        if (!res.ok) return alert("❌ " + res.error);
+        alert(`🎉 చెల్లింపు విజయవంతం!\n\nPaper-2 కోసం మీ వ్యక్తిగత PIN: ${res.student.personal_pin}\nదీనిని నోట్ చేసుకోండి.`);
+        localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ isDirect: true, name, phone, pin: res.student.personal_pin, paperTag: PAPER_TAG }));
+        bootStudentFromCloud(res);
+      }
+    });
+    rzp.open();
   }
 
   // ================= SUPER ADMIN =================
@@ -360,7 +428,7 @@
     reloadAdmin();
   }
   function renderAdminRows(list, basePrice) {
-    document.getElementById('adminInstTableBody').innerHTML = list.map(inst => {
+    document.getElementById('adminInstTableBody').innerHTML = list.filter(i => i.id !== 'DIRECT_OPEN').map(inst => {
       const payable = Math.round(basePrice * (100 - inst.discount) / 100);
       return `<tr>
         <td><strong>${inst.name}</strong><br><small>Code: <code>${inst.code}</code></small></td>
@@ -421,7 +489,6 @@
       act.innerHTML = `<button class="btn btn-success btn-sm" onclick="payDirectorRazorpay(${payable})">💳 Pay ₹${payable} & Start Exam</button>`;
     }
 
-    // Filter only Paper-2 students
     const p2Students = res.students.filter(s => String(s.roll).endsWith(PAPER_TAG));
     document.getElementById('directorStudentsBody').innerHTML = p2Students.length === 0
       ? `<tr><td colspan="7" style="text-align:center;">ఇంకా ఏ విద్యార్థి Paper-2 లాగిన్ అవ్వలేదు.</td></tr>`
@@ -458,14 +525,11 @@
     if (res.ok) { refreshDirectorData(); alert(`🔑 Roll ${rollFull.replace(PAPER_TAG, '')} కొత్త PIN: ${res.newPin}`); }
   }
 
-  // ================= STUDENT (CLOUD PERSISTENT) =================
+  // ================= INSTITUTE STUDENT & COMMON EXAM ENGINE =================
   let stuSession = null, currentIdx = 0, answersMap = {}, examEndTimeMs = 0, timerInterval = null;
 
   async function studentLogin() {
-    if (QUESTIONS.length === 0) {
-      alert("⚠️ part1.js మరియు part2.js ఫైల్స్ లోడ్ కాలేదు. దయచేసి అవి ఇదే ఫోల్డర్‌లో ఉన్నాయో లేదో చూడండి.");
-      return;
-    }
+    if (QUESTIONS.length === 0) return alert("⚠️ part1.js మరియు part2.js ఫైల్స్ లోడ్ కాలేదు.");
     const code = document.getElementById('stuInstCode').value.trim().toUpperCase();
     const rawRoll = document.getElementById('stuRoll').value.trim();
     const name = document.getElementById('stuName').value.trim();
@@ -480,18 +544,15 @@
     document.getElementById('stuLoginBtn').innerText = "🚀 Paper-2 పరీక్ష ప్రారంభించండి / కొనసాగించండి";
 
     if (!res.ok) return alert("❌ " + res.error);
+    if (res.isNew) alert(`🎉 స్వాగతం ${name}!\n\nPaper-2 కోసం మీ వ్యక్తిగత PIN: ${res.student.personal_pin}\nదీనిని నోట్ చేసుకోండి.`);
 
-    if (res.isNew) {
-      alert(`🎉 స్వాగతం ${name}!\n\nPaper-2 కోసం మీ వ్యక్తిగత PIN: ${res.student.personal_pin}\nదీనిని నోట్ చేసుకోండి.`);
-    }
-
-    localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ code, roll: taggedRoll, name, phone, pin: res.student.personal_pin }));
+    localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ isDirect: false, code, roll: taggedRoll, name, phone, pin: res.student.personal_pin }));
     bootStudentFromCloud(res);
   }
 
   function bootStudentFromCloud(res) {
     const stu = res.student;
-    stuSession = { id: stu.id, instName: res.instName, roll: stu.roll.replace(PAPER_TAG, ''), name: stu.name, pin: stu.personal_pin };
+    stuSession = { id: stu.id, instName: res.instName, roll: String(stu.roll).replace(PAPER_TAG, ''), name: stu.name, pin: stu.personal_pin };
     answersMap = JSON.parse(stu.answers_json || "{}");
     examEndTimeMs = Number(stu.exam_end_ms);
     currentIdx = Number(stu.last_idx || 0);
@@ -514,11 +575,7 @@
     clearInterval(timerInterval);
     function tick() {
       const rem = Math.floor((examEndTimeMs - Date.now()) / 1000);
-      if (rem <= 0) {
-        clearInterval(timerInterval);
-        submitExam(false);
-        return;
-      }
+      if (rem <= 0) { clearInterval(timerInterval); submitExam(false); return; }
       const h = String(Math.floor(rem / 3600)).padStart(2, '0');
       const m = String(Math.floor((rem % 3600) / 60)).padStart(2, '0');
       const s = String(rem % 60).padStart(2, '0');
@@ -555,16 +612,8 @@
     document.getElementById('saveIndicator').innerText = `☁️ Saved (${Object.keys(answersMap).length})`;
   }
 
-  function selectOption(i) {
-    answersMap[String(currentIdx)] = i;
-    renderQuestion(currentIdx);
-    syncCloudNow();
-  }
-  function clearResponse() {
-    delete answersMap[String(currentIdx)];
-    renderQuestion(currentIdx);
-    syncCloudNow();
-  }
+  function selectOption(i) { answersMap[String(currentIdx)] = i; renderQuestion(currentIdx); syncCloudNow(); }
+  function clearResponse() { delete answersMap[String(currentIdx)]; renderQuestion(currentIdx); syncCloudNow(); }
   function nextQuestion() { if (currentIdx < QUESTIONS.length - 1) { renderQuestion(currentIdx + 1); syncCloudNow(); } }
   function prevQuestion() { if (currentIdx > 0) { renderQuestion(currentIdx - 1); syncCloudNow(); } }
   function jumpToBlock(startIdx) { if (startIdx < QUESTIONS.length) renderQuestion(startIdx); }
@@ -620,7 +669,7 @@
 
     document.getElementById('printInstName').innerText = stuSession.instName;
     document.getElementById('finalScoreText').innerText = `${correct} / ${QUESTIONS.length}`;
-    document.getElementById('candidateMetaText').innerText = `Roll No: ${stuSession.roll} • ${stuSession.name} • PIN: ${stuSession.pin}`;
+    document.getElementById('candidateMetaText').innerText = `ID/Roll: ${stuSession.roll} • ${stuSession.name} • PIN: ${stuSession.pin}`;
     document.getElementById('statCorrect').innerText = correct;
     document.getElementById('statWrong').innerText = wrong;
     document.getElementById('statSkip').innerText = skipped;
@@ -633,13 +682,14 @@
     location.reload();
   }
 
-  // AUTO-RESTORE FROM CLOUDFLARE D1 ON PAGE REFRESH
   window.addEventListener("load", async () => {
     const saved = localStorage.getItem(SESSION_COOKIE_KEY);
     if (!saved) return;
     try {
       const creds = JSON.parse(saved);
-      const res = await apiCall({ action: "student_login", ...creds });
+      const res = creds.isDirect
+        ? await apiCall({ action: "direct_student_login", ...creds })
+        : await apiCall({ action: "student_login", ...creds });
       if (res.ok) bootStudentFromCloud(res);
     } catch (e) {}
   });
