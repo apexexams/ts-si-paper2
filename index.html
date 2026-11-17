@@ -16,13 +16,16 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Noto Sans Telugu', sans-serif; }
     body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
-    header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 16px; text-align: center; border-bottom: 4px solid #38bdf8; position: sticky; top: 0; z-index: 50; }
-    header h1 { font-size: 1.15rem; font-weight: 800; color: #38bdf8; }
-    header p { font-size: 0.8rem; color: #cbd5e1; margin-top: 2px; }
-    .container { max-width: 1000px; margin: 20px auto; padding: 0 14px; }
+
+    /* COMPACT HEADER */
+    header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 8px 14px; text-align: center; border-bottom: 3px solid #38bdf8; position: sticky; top: 0; z-index: 50; }
+    header h1 { font-size: 0.96rem; font-weight: 800; color: #38bdf8; line-height: 1.25; }
+    header p { font-size: 0.72rem; color: #cbd5e1; margin-top: 1px; }
+
+    .container { max-width: 1000px; margin: 14px auto; padding: 0 14px; }
     .card { background: var(--card); border-radius: 14px; padding: 20px; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 18px; }
-    .role-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: #e2e8f0; padding: 6px; border-radius: 12px; margin-bottom: 18px; }
-    .role-btn { padding: 10px 6px; border: none; border-radius: 9px; font-weight: 800; font-size: 0.86rem; cursor: pointer; background: transparent; color: #475569; }
+    .role-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: #e2e8f0; padding: 6px; border-radius: 12px; margin-bottom: 16px; }
+    .role-btn { padding: 9px 6px; border: none; border-radius: 9px; font-weight: 800; font-size: 0.84rem; cursor: pointer; background: transparent; color: #475569; }
     .role-btn.active { background: white; color: var(--primary-dark); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
     .sub-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
     .sub-btn { padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 9px; font-weight: 800; font-size: 0.85rem; cursor: pointer; background: #f8fafc; color: #334155; }
@@ -45,11 +48,11 @@
     .status-pill { padding: 3px 9px; border-radius: 12px; font-size: 0.75rem; font-weight: 800; }
     .st-active { background: #dcfce7; color: #166534; }
     .st-hold { background: #fee2e2; color: #991b1b; }
-    .exam-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: white; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 14px; }
-    .timer-box { background: #fee2e2; color: #b91c1c; padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 1rem; }
-    .sec-btn { padding: 7px 10px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: #f8fafc; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+    .exam-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 12px; }
+    .timer-box { background: #fee2e2; color: #b91c1c; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.95rem; }
+    .sec-btn { padding: 6px 10px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: #f8fafc; font-weight: 700; font-size: 0.78rem; cursor: pointer; }
     .sec-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-    .q-text-box { font-size: 0.98rem; font-weight: 600; margin-bottom: 16px; background: #f8fafc; padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--primary); white-space: pre-line; color: #0f172a; }
+    .q-text-box { font-size: 0.96rem; font-weight: 600; margin-bottom: 16px; background: #f8fafc; padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--primary); white-space: pre-line; color: #0f172a; }
     .opt-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; margin-bottom: 9px; font-size: 0.94rem; font-weight: 600; background: white; }
     .opt-item.selected { border-color: var(--primary); background: #e0f2fe; color: #0369a1; }
     .opt-circle { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #94a3b8; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; flex-shrink: 0; }
@@ -58,6 +61,13 @@
     .p-btn { padding: 6px 0; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
     .p-btn.answered { background: #16a34a; color: white; border-color: #16a34a; }
     .p-btn.current { outline: 2.5px solid #0284c7; }
+
+    /* WAITING LOBBY BOX */
+    .lobby-card { text-align: center; padding: 32px 20px; border: 2px solid #7dd3fc; background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%); }
+    .lobby-timer { font-size: 3.1rem; font-weight: 800; color: #0369a1; margin: 14px 0; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+    .lobby-pill { display: inline-block; background: #fef3c7; color: #92400e; padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; margin-bottom: 10px; }
+    .lobby-rules { text-align: left; max-width: 520px; margin: 16px auto 0; background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 16px; font-size: 0.82rem; color: #334155; }
+    .lobby-rules li { margin-left: 16px; margin-bottom: 4px; }
 
     /* IMPROVED ATTRACTIVE SCORECARD & STATS STRIP */
     .scorecard-wrap { background: #ffffff; border-radius: 16px; border: 1px solid #cbd5e1; overflow: hidden; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); margin-bottom: 18px; }
@@ -90,7 +100,7 @@
 
 <header>
   <h1>🎯 TS SI Mains 2023 — Paper-2 (General Studies)</h1>
-  <p>TSLPRB Official Exam Portal • 200 Questions • 200 Marks • Duration: 180 Mins</p>
+  <p>TSLPRB Portal • 200 Qs • 200 Marks • 180 Mins</p>
 </header>
 
 <div class="container">
@@ -121,7 +131,7 @@
           <div class="form-group"><label>Mobile Number *</label><input type="tel" id="stuPhone" maxlength="10" placeholder="10-digit mobile number"></div>
           <div class="form-group"><label>Personal PIN (2nd Time onwards)</label><input type="password" id="stuPersonalPin" maxlength="4" placeholder="Leave blank if 1st time"></div>
         </div>
-        <button class="btn btn-primary btn-full" id="stuLoginBtn" onclick="studentLogin()">🚀 Start / Continue Paper-2</button>
+        <button class="btn btn-primary btn-full" id="stuLoginBtn" onclick="studentLogin()">🚀 Join Lobby / Resume Paper-2</button>
       </div>
 
       <!-- MODE B: DIRECT STUDENT (₹5) -->
@@ -136,6 +146,27 @@
           <div class="form-group"><label>Personal PIN (Only if already paid ₹5)</label><input type="password" id="dirStuPin" maxlength="4" placeholder="Leave blank for new payment"></div>
         </div>
         <button class="btn btn-success btn-full" id="directPayBtn" onclick="startDirectStudentFlow()">💳 Pay ₹5 & Start Paper-2 (or Continue)</button>
+      </div>
+    </div>
+
+    <!-- 5-MINUTE PRE-EXAM WAITING LOBBY -->
+    <div id="waitingLobbyScreen" class="card lobby-card" style="display: none;">
+      <div class="lobby-pill">⏳ EXAM LOBBY • CANDIDATE CHECK-IN</div>
+      <h2 id="lobbyInstTitle" style="font-size:1.25rem; color:#0f172a; margin-bottom:4px;"></h2>
+      <p id="lobbyCandidateInfo" style="font-size:0.9rem; font-weight:700; color:#0369a1; margin-bottom:10px;"></p>
+      <p style="font-size:0.86rem; color:#475569; max-width:520px; margin:0 auto;">
+        You have checked in successfully. The exam will automatically begin for all checked-in candidates when the 5-minute countdown ends.
+      </p>
+      <div class="lobby-timer" id="lobbyCountdownDisplay">05:00</div>
+      <div style="display:inline-block; background:#fef3c7; color:#92400e; padding:6px 14px; border-radius:8px; font-size:0.84rem; font-weight:800;" id="lobbyPinDisplay"></div>
+      <div class="lobby-rules">
+        <strong>📋 Exam Instructions:</strong>
+        <ul style="margin-top:6px;">
+          <li>Total Questions: <strong>200</strong> | Maximum Marks: <strong>200</strong> | Duration: <strong>180 Minutes</strong>.</li>
+          <li>Each correct answer carries <strong>+1 mark</strong>. No negative marking.</li>
+          <li>Your responses are automatically saved to the cloud on every click.</li>
+          <li>Do not refresh or close the browser tab during the countdown.</li>
+        </ul>
       </div>
     </div>
 
@@ -247,6 +278,7 @@
         <div style="background:#f8fafc; border:1px solid var(--border); padding:14px; border-radius:10px; margin-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div>
             <strong>Exam Status:</strong> <span id="dirExamStatusBadge" class="status-pill st-hold" style="margin-left:8px;">STOPPED</span>
+            <span id="dirLobbyMonitorBadge" style="margin-left:8px; font-size:0.8rem; font-weight:800; color:#0369a1;"></span>
             <div id="dirFeeInfo" style="font-size:0.84rem; font-weight:700; margin-top:4px;"></div>
           </div>
           <div id="dirActionButtons" style="display:flex; gap:8px;"></div>
@@ -259,7 +291,7 @@
           <h3>TS SI Mains 2023 — Paper-2 (General Studies) Official Merit List</h3>
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;" class="no-print">
-          <h3 style="font-size:1.08rem;">📊 Student Merit List (Paper-2)</h3>
+          <h3 style="font-size:1.08rem;">📊 Student Merit List & Live Check-In Monitor</h3>
           <button class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Download Merit List PDF</button>
         </div>
         <div class="table-wrap">
@@ -334,6 +366,29 @@
   const RAZORPAY_KEY_ID = "rzp_live_T18sE5oDk1k8ey";
   const SESSION_COOKIE_KEY = "TSSI_P2_GS_CLOUD_SESSION";
   const PAPER_TAG = "_P2";
+  const EXAM_DURATION_MINS = 180;
+  const LOBBY_WAIT_MS = 5 * 60 * 1000;
+
+  function translateServerMsg(msg) {
+    if (!msg) return "An unexpected error occurred.";
+    const m = String(msg);
+    if (m.includes("ప్రారంభించలేదు") || m.toLowerCase().includes("not live")) {
+      return "The Institute Director has not started the exam yet. Please wait for your institute to activate the test.";
+    }
+    if (m.includes("హోల్డ్") || m.toLowerCase().includes("hold")) {
+      return "This institute account is currently on hold. Please contact your coaching center.";
+    }
+    if (m.includes("కోడ్") || m.toLowerCase().includes("institute")) {
+      return "Invalid Institute Code. Please verify the code provided by your institute.";
+    }
+    if (m.includes("రోల్") || m.toLowerCase().includes("roll")) {
+      return "Invalid Roll Number. Please enter a roll number within your institute's allotted range.";
+    }
+    if (m.includes("PIN") || m.includes("పిన్")) {
+      return "Invalid Personal PIN or Mobile Number. Contact your Director to reset your PIN.";
+    }
+    return m;
+  }
 
   async function apiCall(payload) {
     const res = await fetch(API_URL, {
@@ -345,7 +400,6 @@
   }
 
   function switchRole(role) {
-    if (localStorage.getItem(SESSION_COOKIE_KEY)) return;
     ['student', 'director', 'admin'].forEach(r => {
       document.getElementById(`view-${r}`).style.display = (r === role) ? 'block' : 'none';
       document.getElementById(`tab-${r}`).classList.toggle('active', r === role);
@@ -370,9 +424,9 @@
 
     if (pin) {
       const res = await apiCall({ action: "direct_student_login", name, phone, pin, paperTag: PAPER_TAG });
-      if (!res.ok) return alert("❌ " + res.error);
+      if (!res.ok) return alert("❌ " + translateServerMsg(res.error));
       localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ isDirect: true, name, phone, pin, paperTag: PAPER_TAG }));
-      bootStudentFromCloud(res);
+      bootStudentFromCloud(res, true);
       return;
     }
 
@@ -390,10 +444,10 @@
           paymentId: resp.razorpay_payment_id,
           paperTag: PAPER_TAG
         });
-        if (!res.ok) return alert("❌ " + res.error);
+        if (!res.ok) return alert("❌ " + translateServerMsg(res.error));
         alert(`🎉 Payment Successful!\n\nYour Personal PIN for Paper-2: ${res.student.personal_pin}\nSave this PIN to resume or view your scorecard anytime.`);
         localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ isDirect: true, name, phone, pin: res.student.personal_pin, paperTag: PAPER_TAG }));
-        bootStudentFromCloud(res);
+        bootStudentFromCloud(res, true);
       }
     });
     rzp.open();
@@ -474,16 +528,18 @@
   }
 
   // ================= DIRECTOR =================
-  let dirCreds = null, dirInstData = null, dirBasePrice = 500;
+  let dirCreds = null, dirInstData = null, dirBasePrice = 500, dirPollTimer = null;
   async function directorLogin() {
     const mobile = document.getElementById('dirMobile').value.trim();
     const pin = document.getElementById('dirPin').value.trim();
     const res = await apiCall({ action: "director_login", mobile, pin });
-    if (!res.ok) return alert("❌ " + res.error);
+    if (!res.ok) return alert("❌ " + translateServerMsg(res.error));
     dirCreds = { mobile, pin };
     document.getElementById('directorLoginCard').style.display = 'none';
     document.getElementById('directorDashboard').style.display = 'block';
     renderDirector(res);
+    clearInterval(dirPollTimer);
+    dirPollTimer = setInterval(refreshDirectorData, 10000);
   }
   async function refreshDirectorData() {
     if (!dirCreds) return;
@@ -492,6 +548,7 @@
   }
   function directorLogout() {
     dirCreds = null;
+    clearInterval(dirPollTimer);
     document.getElementById('directorLoginCard').style.display = 'block';
     document.getElementById('directorDashboard').style.display = 'none';
   }
@@ -511,14 +568,15 @@
     if (dirInstData.exam_live) {
       act.innerHTML = `<button class="btn btn-danger btn-sm" onclick="setExamLive(false, false, '')">⏹️ Stop Exam</button>`;
     } else if (payable === 0 || dirInstData.fee_paid) {
-      act.innerHTML = `<button class="btn btn-success btn-sm" onclick="setExamLive(true, true, '')">▶️ Start Exam (Live)</button>`;
+      act.innerHTML = `<button class="btn btn-success btn-sm" onclick="setExamLive(true, true, '')">▶️ Start Exam (5-Min Lobby)</button>`;
     } else {
       act.innerHTML = `<button class="btn btn-success btn-sm" onclick="payDirectorRazorpay(${payable})">💳 Pay ₹${payable} & Start Exam</button>`;
     }
 
     const p2Students = res.students.filter(s => String(s.roll).endsWith(PAPER_TAG));
+    document.getElementById('dirLobbyMonitorBadge').innerText = `👥 Checked-In Students: ${p2Students.length}`;
     document.getElementById('directorStudentsBody').innerHTML = p2Students.length === 0
-      ? `<tr><td colspan="7" style="text-align:center;">No students have logged in for Paper-2 yet.</td></tr>`
+      ? `<tr><td colspan="7" style="text-align:center;">No students have checked in for Paper-2 yet.</td></tr>`
       : p2Students.map((s, idx) => `<tr>
           <td><strong>#${idx+1}</strong></td><td><strong>${s.roll.replace(PAPER_TAG, '')}</strong></td><td>${s.name}</td>
           <td><strong>${s.total} / ${QUESTIONS.length}</strong></td>
@@ -531,7 +589,7 @@
         </tr>`).join('');
   }
   async function setExamLive(live, paid, paymentId) {
-    await apiCall({ action: "director_exam_state", instId: dirInstData.id, live, paid, paymentId });
+    await apiCall({ action: "director_exam_state", instId: dirInstData.id, live, paid, paymentId, liveStartedMs: live ? Date.now() : 0 });
     refreshDirectorData();
   }
   function payDirectorRazorpay(payable) {
@@ -553,7 +611,7 @@
   }
 
   // ================= INSTITUTE STUDENT & COMMON EXAM ENGINE =================
-  let stuSession = null, currentIdx = 0, answersMap = {}, examEndTimeMs = 0, timerInterval = null;
+  let stuSession = null, currentIdx = 0, answersMap = {}, examEndTimeMs = 0, timerInterval = null, lobbyInterval = null;
 
   async function studentLogin() {
     if (QUESTIONS.length === 0) return alert("⚠️ Question files (part1.js & part2.js) failed to load.");
@@ -568,20 +626,23 @@
 
     const taggedRoll = rawRoll + PAPER_TAG;
     const res = await apiCall({ action: "student_login", code, roll: taggedRoll, name, phone, pin });
-    document.getElementById('stuLoginBtn').innerText = "🚀 Start / Continue Paper-2";
+    document.getElementById('stuLoginBtn').innerText = "🚀 Join Lobby / Resume Paper-2";
 
-    if (!res.ok) return alert("❌ " + res.error);
+    if (!res.ok) return alert("❌ " + translateServerMsg(res.error));
     if (res.isNew) alert(`🎉 Welcome ${name}!\n\nYour Personal PIN for Paper-2: ${res.student.personal_pin}\nPlease note down this PIN.`);
 
     localStorage.setItem(SESSION_COOKIE_KEY, JSON.stringify({ isDirect: false, code, roll: taggedRoll, name, phone, pin: res.student.personal_pin }));
-    bootStudentFromCloud(res);
+    bootStudentFromCloud(res, false);
   }
 
-  function bootStudentFromCloud(res) {
+  function bootStudentFromCloud(res, isDirect) {
     const stu = res.student;
     stuSession = { id: stu.id, instName: res.instName, roll: String(stu.roll).replace(PAPER_TAG, ''), name: stu.name, pin: stu.personal_pin };
     answersMap = JSON.parse(stu.answers_json || "{}");
-    examEndTimeMs = Number(stu.exam_end_ms);
+
+    const rawEnd = Number(stu.exam_end_ms);
+    const maxP2End = Date.now() + (EXAM_DURATION_MINS * 60 * 1000);
+    examEndTimeMs = (rawEnd > maxP2End + 60000) ? maxP2End : rawEnd;
     currentIdx = Number(stu.last_idx || 0);
 
     document.getElementById('roleSwitcher').style.display = 'none';
@@ -589,13 +650,63 @@
 
     if (stu.status === "SUBMITTED" || Date.now() >= examEndTimeMs) {
       submitExam(true);
-    } else {
-      document.getElementById('examScreen').style.display = 'block';
-      document.getElementById('stuPinBanner').innerText = `🔑 PIN: ${stu.personal_pin}`;
-      buildPalette();
-      renderQuestion(currentIdx);
-      startTimer();
+      return;
     }
+
+    const serverStartMs = Number(res.liveStartedMs || res.live_started_ms || 0);
+    const localLobbyKey = `LOBBY_END_${stu.id}`;
+    let lobbyEndMs = 0;
+
+    if (serverStartMs > 0) {
+      lobbyEndMs = serverStartMs + LOBBY_WAIT_MS;
+    } else if (!isDirect && Object.keys(answersMap).length === 0) {
+      const savedLobby = Number(localStorage.getItem(localLobbyKey) || 0);
+      if (savedLobby > 0) {
+        lobbyEndMs = savedLobby;
+      } else if (res.isNew) {
+        lobbyEndMs = Date.now() + LOBBY_WAIT_MS;
+        localStorage.setItem(localLobbyKey, String(lobbyEndMs));
+      }
+    }
+
+    if (!isDirect && lobbyEndMs > Date.now() && Object.keys(answersMap).length === 0) {
+      startWaitingLobby(lobbyEndMs);
+    } else {
+      launchActualExamScreen();
+    }
+  }
+
+  function startWaitingLobby(lobbyEndMs) {
+    document.getElementById('waitingLobbyScreen').style.display = 'block';
+    document.getElementById('lobbyInstTitle').innerText = stuSession.instName;
+    document.getElementById('lobbyCandidateInfo').innerText = `Roll No: ${stuSession.roll} • ${stuSession.name}`;
+    document.getElementById('lobbyPinDisplay').innerText = `🔑 Personal PIN: ${stuSession.pin}`;
+
+    clearInterval(lobbyInterval);
+    function tickLobby() {
+      const rem = Math.ceil((lobbyEndMs - Date.now()) / 1000);
+      if (rem <= 0) {
+        clearInterval(lobbyInterval);
+        document.getElementById('waitingLobbyScreen').style.display = 'none';
+        examEndTimeMs = Date.now() + (EXAM_DURATION_MINS * 60 * 1000);
+        launchActualExamScreen();
+        return;
+      }
+      const m = String(Math.floor(rem / 60)).padStart(2, '0');
+      const s = String(rem % 60).padStart(2, '0');
+      document.getElementById('lobbyCountdownDisplay').innerText = `${m}:${s}`;
+    }
+    tickLobby();
+    lobbyInterval = setInterval(tickLobby, 1000);
+  }
+
+  function launchActualExamScreen() {
+    document.getElementById('waitingLobbyScreen').style.display = 'none';
+    document.getElementById('examScreen').style.display = 'block';
+    document.getElementById('stuPinBanner').innerText = `🔑 PIN: ${stuSession.pin}`;
+    buildPalette();
+    renderQuestion(currentIdx);
+    startTimer();
   }
 
   function startTimer() {
@@ -667,6 +778,8 @@
 
   async function submitExam(alreadySubmitted) {
     clearInterval(timerInterval);
+    clearInterval(lobbyInterval);
+    document.getElementById('waitingLobbyScreen').style.display = 'none';
     document.getElementById('examScreen').style.display = 'none';
     document.getElementById('resultScreen').style.display = 'block';
 
@@ -717,8 +830,14 @@
       const res = creds.isDirect
         ? await apiCall({ action: "direct_student_login", ...creds })
         : await apiCall({ action: "student_login", ...creds });
-      if (res.ok) bootStudentFromCloud(res);
-    } catch (e) {}
+      if (res.ok) {
+        bootStudentFromCloud(res, !!creds.isDirect);
+      } else {
+        localStorage.removeItem(SESSION_COOKIE_KEY);
+      }
+    } catch (e) {
+      localStorage.removeItem(SESSION_COOKIE_KEY);
+    }
   });
 </script>
 </body>
